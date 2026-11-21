@@ -1,0 +1,19 @@
+{
+  "baseline": "baseline",
+  "candidate": "unsafe-self-approval",
+  "newlyAllowed": [
+    "casey/approve/alpha-payment/corp-mfa",
+    "gale/approve/beta-payment/corp-mfa"
+  ],
+  "newlyDenied": [],
+  "reasonChanged": [
+    "alex/approve/alpha-public-doc/corp-mfa",
+    "blair/approve/alpha-internal-doc/corp-mfa",
+    "casey/approve/alpha-payment/corp-mfa",
+    "casey/approve/alpha-restricted-doc/corp-mfa",
+    "erin/approve/beta-public-doc/corp-mfa",
+    "frank/approve/beta-internal-doc/corp-mfa",
+    "gale/approve/beta-payment/corp-mfa",
+    "gale/approve/beta-restricted-doc/corp-mfa"
+  ]
+}

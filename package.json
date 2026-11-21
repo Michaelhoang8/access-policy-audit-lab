@@ -1,0 +1,7 @@
+{
+  "name": "access-policy-audit-lab", "version": "1.0.0", "private": true, "type": "module",
+  "description": "Finite authorization-policy differential audit with independent evaluation",
+  "engines": { "node": ">=24.0.0 <25" },
+  "scripts": { "typecheck": "tsc --noEmit", "test": "node --test tests/*.test.ts", "generate": "node scripts/generate.ts", "audit": "node scripts/audit.ts", "report": "node scripts/report.ts", "cli": "node scripts/cli.ts" },
+  "devDependencies": { "@types/node": "24.19.2", "typescript": "7.0.2" }
+}

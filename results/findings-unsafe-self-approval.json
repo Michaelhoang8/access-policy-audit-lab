@@ -1,0 +1,41 @@
+{
+  "isolation": [],
+  "selfApproval": [
+    "casey/approve/alpha-payment/corp-mfa",
+    "gale/approve/beta-payment/corp-mfa"
+  ],
+  "roleConflicts": [
+    {
+      "user": "casey",
+      "pair": [
+        "approver",
+        "requester"
+      ],
+      "paths": [
+        [
+          "requester",
+          "approver"
+        ],
+        [
+          "requester"
+        ]
+      ]
+    },
+    {
+      "user": "gale",
+      "pair": [
+        "approver",
+        "requester"
+      ],
+      "paths": [
+        [
+          "requester",
+          "approver"
+        ],
+        [
+          "requester"
+        ]
+      ]
+    }
+  ]
+}

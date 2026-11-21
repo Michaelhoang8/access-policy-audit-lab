@@ -1,0 +1,50 @@
+[
+  {
+    "policy": "proposed",
+    "category": "newly-allowed",
+    "requestId": "drew/approve/alpha-payment/public-mfa",
+    "file": "witnesses/proposed-newly-allowed.json"
+  },
+  {
+    "policy": "proposed",
+    "category": "newly-denied",
+    "requestId": "alex/read/alpha-payment/public-mfa",
+    "file": "witnesses/proposed-newly-denied.json"
+  },
+  {
+    "policy": "unsafe-inherited-approval",
+    "category": "role-conflict",
+    "user": "casey",
+    "file": "witnesses/unsafe-inherited-approval-role-conflict.json"
+  },
+  {
+    "policy": "unsafe-no-tenant-deny",
+    "category": "newly-allowed",
+    "requestId": "alex/read/beta-internal-doc/corp-mfa",
+    "file": "witnesses/unsafe-no-tenant-deny-newly-allowed.json"
+  },
+  {
+    "policy": "unsafe-no-tenant-deny",
+    "category": "tenant-isolation",
+    "requestId": "alex/read/beta-internal-doc/corp-mfa",
+    "file": "witnesses/unsafe-no-tenant-deny-tenant-isolation.json"
+  },
+  {
+    "policy": "unsafe-self-approval",
+    "category": "newly-allowed",
+    "requestId": "casey/approve/alpha-payment/corp-mfa",
+    "file": "witnesses/unsafe-self-approval-newly-allowed.json"
+  },
+  {
+    "policy": "unsafe-self-approval",
+    "category": "self-approval",
+    "requestId": "casey/approve/alpha-payment/corp-mfa",
+    "file": "witnesses/unsafe-self-approval-self-approval.json"
+  },
+  {
+    "policy": "unsafe-self-approval",
+    "category": "role-conflict",
+    "user": "casey",
+    "file": "witnesses/unsafe-self-approval-role-conflict.json"
+  }
+]

@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "users": [
+    {
+      "id": "alex",
+      "tenant": "alpha",
+      "roles": [
+        "viewer"
+      ]
+    },
+    {
+      "id": "blair",
+      "tenant": "alpha",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "id": "casey",
+      "tenant": "alpha",
+      "roles": [
+        "requester"
+      ]
+    },
+    {
+      "id": "drew",
+      "tenant": "alpha",
+      "roles": [
+        "approver"
+      ]
+    },
+    {
+      "id": "erin",
+      "tenant": "beta",
+      "roles": [
+        "viewer"
+      ]
+    },
+    {
+      "id": "frank",
+      "tenant": "beta",
+      "roles": [
+        "editor"
+      ]
+    },
+    {
+      "id": "gale",
+      "tenant": "beta",
+      "roles": [
+        "requester"
+      ]
+    },
+    {
+      "id": "harper",
+      "tenant": "beta",
+      "roles": [
+        "approver"
+      ]
+    },
+    {
+      "id": "guest",
+      "tenant": "alpha",
+      "roles": []
+    }
+  ],
+  "actions": [
+    "read",
+    "write",
+    "submit",
+    "approve"
+  ],
+  "resources": [
+    {
+      "id": "alpha-public-doc",
+      "tenant": "alpha",
+      "kind": "document",
+      "classification": "public",
+      "ownerId": "alex"
+    },
+    {
+      "id": "alpha-internal-doc",
+      "tenant": "alpha",
+      "kind": "document",
+      "classification": "internal",
+      "ownerId": "blair"
+    },
+    {
+      "id": "alpha-restricted-doc",
+      "tenant": "alpha",
+      "kind": "document",
+      "classification": "restricted",
+      "ownerId": "casey"
+    },
+    {
+      "id": "alpha-payment",
+      "tenant": "alpha",
+      "kind": "payment",
+      "classification": "restricted",
+      "ownerId": "casey"
+    },
+    {
+      "id": "beta-public-doc",
+      "tenant": "beta",
+      "kind": "document",
+      "classification": "public",
+      "ownerId": "erin"
+    },
+    {
+      "id": "beta-internal-doc",
+      "tenant": "beta",
+      "kind": "document",
+      "classification": "internal",
+      "ownerId": "frank"
+    },
+    {
+      "id": "beta-restricted-doc",
+      "tenant": "beta",
+      "kind": "document",
+      "classification": "restricted",
+      "ownerId": "gale"
+    },
+    {
+      "id": "beta-payment",
+      "tenant": "beta",
+      "kind": "payment",
+      "classification": "restricted",
+      "ownerId": "gale"
+    }
+  ],
+  "contexts": [
+    {
+      "id": "corp-mfa",
+      "network": "corporate",
+      "mfa": true
+    },
+    {
+      "id": "corp-no-mfa",
+      "network": "corporate",
+      "mfa": false
+    },
+    {
+      "id": "public-mfa",
+      "network": "public",
+      "mfa": true
+    },
+    {
+      "id": "public-no-mfa",
+      "network": "public",
+      "mfa": false
+    }
+  ],
+  "constraints": {
+    "isolateTenants": true,
+    "prohibitSelfApproval": true,
+    "exclusiveRolePairs": [
+      [
+        "requester",
+        "approver"
+      ]
+    ]
+  }
+}

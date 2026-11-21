@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "roles": [
+    {
+      "id": "viewer",
+      "inherits": []
+    },
+    {
+      "id": "editor",
+      "inherits": [
+        "viewer"
+      ]
+    },
+    {
+      "id": "requester",
+      "inherits": [
+        "viewer"
+      ]
+    },
+    {
+      "id": "approver",
+      "inherits": [
+        "viewer"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "allow-view",
+      "effect": "allow",
+      "roles": [
+        "viewer"
+      ],
+      "actions": [
+        "read"
+      ],
+      "resourceKinds": [
+        "*"
+      ],
+      "conditions": []
+    },
+    {
+      "id": "allow-edit",
+      "effect": "allow",
+      "roles": [
+        "editor"
+      ],
+      "actions": [
+        "write"
+      ],
+      "resourceKinds": [
+        "document"
+      ],
+      "conditions": []
+    },
+    {
+      "id": "allow-submit",
+      "effect": "allow",
+      "roles": [
+        "requester"
+      ],
+      "actions": [
+        "submit"
+      ],
+      "resourceKinds": [
+        "payment"
+      ],
+      "conditions": []
+    },
+    {
+      "id": "allow-approve",
+      "effect": "allow",
+      "roles": [
+        "approver"
+      ],
+      "actions": [
+        "approve"
+      ],
+      "resourceKinds": [
+        "payment"
+      ],
+      "conditions": []
+    },
+    {
+      "id": "deny-tenant-boundary",
+      "effect": "deny",
+      "roles": [
+        "*"
+      ],
+      "actions": [
+        "*"
+      ],
+      "resourceKinds": [
+        "*"
+      ],
+      "conditions": [
+        {
+          "left": "subject.tenant",
+          "op": "neq",
+          "right": {
+            "attribute": "resource.tenant"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deny-mutation-without-mfa",
+      "effect": "deny",
+      "roles": [
+        "*"
+      ],
+      "actions": [
+        "write",
+        "submit",
+        "approve"
+      ],
+      "resourceKinds": [
+        "*"
+      ],
+      "conditions": [
+        {
+          "left": "context.mfa",
+          "op": "eq",
+          "right": {
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "deny-restricted-read-without-mfa",
+      "effect": "deny",
+      "roles": [
+        "*"
+      ],
+      "actions": [
+        "read"
+      ],
+      "resourceKinds": [
+        "*"
+      ],
+      "conditions": [
+        {
+          "left": "resource.classification",
+          "op": "eq",
+          "right": {
+            "value": "restricted"
+          }
+        },
+        {
+          "left": "context.mfa",
+          "op": "eq",
+          "right": {
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "deny-public-approval",
+      "effect": "deny",
+      "roles": [
+        "*"
+      ],
+      "actions": [
+        "approve"
+      ],
+      "resourceKinds": [
+        "*"
+      ],
+      "conditions": [
+        {
+          "left": "context.network",
+          "op": "eq",
+          "right": {
+            "value": "public"
+          }
+        }
+      ]
+    },
+    {
+      "id": "deny-self-approval",
+      "effect": "deny",
+      "roles": [
+        "*"
+      ],
+      "actions": [
+        "approve"
+      ],
+      "resourceKinds": [
+        "*"
+      ],
+      "conditions": [
+        {
+          "left": "subject.id",
+          "op": "eq",
+          "right": {
+            "attribute": "resource.ownerId"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "captured_at_utc": "2026-11-21T01:12:26.684597+00:00",
+  "source": "Actual browser rendering of docs/report.html",
+  "recording": "Continuous automated browser review; not manual development footage",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "page_title": "Access policy audit lab",
+  "report_sha256_normalized_text": "d3fc7193627010b58aee4a8597130cbf26a06fd40dffa9685b9137046ab8da23",
+  "video_sha256": "0440e63bbff0aeb70d816cf9dfd8d71f44b1e97141dc5611739570b93510bc56",
+  "captures": [
+    {
+      "path": "docs/screenshots/01_overview.png",
+      "section": "overview",
+      "sha256": "4532d2811e3a027b72a68afb5952eea55af779e7ea84ed7b60a7f7ec70249660"
+    },
+    {
+      "path": "docs/screenshots/02_diff.png",
+      "section": "diff",
+      "sha256": "aefd5982d76a69e6543a4966f73af27dc02149795f457bde84d79eac9aac152b"
+    },
+    {
+      "path": "docs/screenshots/03_precedence.png",
+      "section": "precedence",
+      "sha256": "f2c581afe2f93049ee5dedec3ec0b97a36d912460ba0bb52167b15eae0fd17d5"
+    },
+    {
+      "path": "docs/screenshots/04_isolation.png",
+      "section": "isolation",
+      "sha256": "0657eb179eb60beaaa9772b96c0d700b6f8a089b3cb0340c04615d62b52a1afd"
+    },
+    {
+      "path": "docs/screenshots/05_separation.png",
+      "section": "separation",
+      "sha256": "7be2928b17efd63dbc7f90c66e6bbaddf74175c99bc38e26a88f506b77816139"
+    },
+    {
+      "path": "docs/screenshots/06_bounds.png",
+      "section": "bounds",
+      "sha256": "8e872e0a2dfebe0d88aeba444d6a334263c3f3c68f09bdbad5c7ff33d039a0a2"
+    }
+  ]
+}

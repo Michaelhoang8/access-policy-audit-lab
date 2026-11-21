@@ -1,0 +1,53 @@
+{
+  "category": "role-conflict",
+  "policy": "unsafe-inherited-approval",
+  "minimality": "first user in lexical order; one configured exclusive pair",
+  "user": "casey",
+  "pair": [
+    "approver",
+    "requester"
+  ],
+  "paths": [
+    [
+      "requester",
+      "approver"
+    ],
+    [
+      "requester"
+    ]
+  ],
+  "allConflicts": [
+    {
+      "user": "casey",
+      "pair": [
+        "approver",
+        "requester"
+      ],
+      "paths": [
+        [
+          "requester",
+          "approver"
+        ],
+        [
+          "requester"
+        ]
+      ]
+    },
+    {
+      "user": "gale",
+      "pair": [
+        "approver",
+        "requester"
+      ],
+      "paths": [
+        [
+          "requester",
+          "approver"
+        ],
+        [
+          "requester"
+        ]
+      ]
+    }
+  ]
+}

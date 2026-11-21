@@ -1,0 +1,25 @@
+{
+  "measuredAt": "2026-11-21T00:55:15.772Z",
+  "node": "v24.20.0",
+  "platform": "win32",
+  "architecture": "x64",
+  "hashEncoding": "UTF-8; CRLF normalized to LF",
+  "inputSha256": {
+    "data/domain.json": "65cebe9f268c18f1731250c9a7e579063e7810e5ec373f04768a36b15ac267b0",
+    "data/policies/baseline.json": "4685d71701ec4fd62a87f0104e2df012a8b6a135f916a0c472d45c8f14830f50",
+    "data/policies/proposed.json": "62ad1c8dbf6f3115099457229eeafdffdfc3a64c9181ac957ccf326e05d4e94d",
+    "data/policies/unsafe-inherited-approval.json": "a3f8952157e870577209adbe611851b73e64d467e9d62e587951e0eced68f562",
+    "data/policies/unsafe-no-tenant-deny.json": "a9d58ca6370cd268c473b78f5f1be0d3e8e0f0fb965fff873e692ae271dd86fe",
+    "data/policies/unsafe-self-approval.json": "60c7861ece9339a5db372e91b2e7ab6c6876eb2b999fccbeb4f37bdfc15e5d1f"
+  },
+  "sourceSha256": {
+    "src/schema.ts": "80366c32c5d27423c5f2711ce80adc27d3ada790410b9d3d0566a7de1a8f5891",
+    "src/evaluator.ts": "2735c7a7808fe5935e57289651c19ffd9f217fb1226428de41e4c58e4e872722",
+    "src/reference.ts": "6bc17716df0b046dadf0f39aa9fcb7afb1b931ce4dc21ed70262e05838573bce",
+    "src/audit.ts": "185d0fb52130fea6a78c00bbda4a50838b1aef376552c6ebb345bb53c34f02ac",
+    "src/fixtures.ts": "3c0c455eb3704f315c00807f8b6cf0c59c39409b9255859e2524cb2840569a37",
+    "scripts/audit.ts": "45ba1c0b9a0feefa9d9cef14b5d85ae9e8b893982253f06648f1e6cf19d44bf3"
+  },
+  "scope": "Offline finite synthetic domain; custom policy language; no real accounts and no AWS/IAM compatibility claim.",
+  "provenance": "AI-assisted authorization analysis study. Complete matrices, reference comparisons and witnesses are actual executions."
+}

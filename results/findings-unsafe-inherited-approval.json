@@ -1,0 +1,38 @@
+{
+  "isolation": [],
+  "selfApproval": [],
+  "roleConflicts": [
+    {
+      "user": "casey",
+      "pair": [
+        "approver",
+        "requester"
+      ],
+      "paths": [
+        [
+          "requester",
+          "approver"
+        ],
+        [
+          "requester"
+        ]
+      ]
+    },
+    {
+      "user": "gale",
+      "pair": [
+        "approver",
+        "requester"
+      ],
+      "paths": [
+        [
+          "requester",
+          "approver"
+        ],
+        [
+          "requester"
+        ]
+      ]
+    }
+  ]
+}

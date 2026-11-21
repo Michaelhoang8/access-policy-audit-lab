@@ -1,0 +1,353 @@
+{
+  "category": "newly-allowed",
+  "policy": "unsafe-no-tenant-deny",
+  "requestId": "alex/read/beta-internal-doc/corp-mfa",
+  "minimality": "first request in subject/action/resource/context lexical tuple order",
+  "candidatesInDomain": 114,
+  "baseline": {
+    "request": {
+      "subject": {
+        "id": "alex",
+        "tenant": "alpha",
+        "roles": [
+          "viewer"
+        ]
+      },
+      "action": "read",
+      "resource": {
+        "id": "beta-internal-doc",
+        "tenant": "beta",
+        "kind": "document",
+        "classification": "internal",
+        "ownerId": "frank"
+      },
+      "context": {
+        "id": "corp-mfa",
+        "network": "corporate",
+        "mfa": true
+      }
+    },
+    "decision": {
+      "allowed": false,
+      "reason": "explicit-deny",
+      "allowRules": [
+        "allow-view"
+      ],
+      "denyRules": [
+        "deny-tenant-boundary"
+      ],
+      "effectiveRoles": [
+        "viewer"
+      ],
+      "rolePaths": {
+        "allow-view": [
+          [
+            "viewer"
+          ]
+        ],
+        "deny-tenant-boundary": []
+      }
+    },
+    "rules": [
+      {
+        "ruleId": "allow-approve",
+        "effect": "allow",
+        "roleSelectorMatches": false,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": false,
+        "conditions": []
+      },
+      {
+        "ruleId": "allow-edit",
+        "effect": "allow",
+        "roleSelectorMatches": false,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": []
+      },
+      {
+        "ruleId": "allow-submit",
+        "effect": "allow",
+        "roleSelectorMatches": false,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": false,
+        "conditions": []
+      },
+      {
+        "ruleId": "allow-view",
+        "effect": "allow",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": true,
+        "resourceKindSelectorMatches": true,
+        "conditions": []
+      },
+      {
+        "ruleId": "deny-mutation-without-mfa",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "context.mfa",
+            "op": "eq",
+            "right": {
+              "value": false
+            },
+            "leftValue": true,
+            "rightValue": false,
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-public-approval",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "context.network",
+            "op": "eq",
+            "right": {
+              "value": "public"
+            },
+            "leftValue": "corporate",
+            "rightValue": "public",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-restricted-read-without-mfa",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": true,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "resource.classification",
+            "op": "eq",
+            "right": {
+              "value": "restricted"
+            },
+            "leftValue": "internal",
+            "rightValue": "restricted",
+            "passed": false
+          },
+          {
+            "left": "context.mfa",
+            "op": "eq",
+            "right": {
+              "value": false
+            },
+            "leftValue": true,
+            "rightValue": false,
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-self-approval",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "subject.id",
+            "op": "eq",
+            "right": {
+              "attribute": "resource.ownerId"
+            },
+            "leftValue": "alex",
+            "rightValue": "frank",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-tenant-boundary",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": true,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "subject.tenant",
+            "op": "neq",
+            "right": {
+              "attribute": "resource.tenant"
+            },
+            "leftValue": "alpha",
+            "rightValue": "beta",
+            "passed": true
+          }
+        ]
+      }
+    ]
+  },
+  "candidate": {
+    "request": {
+      "subject": {
+        "id": "alex",
+        "tenant": "alpha",
+        "roles": [
+          "viewer"
+        ]
+      },
+      "action": "read",
+      "resource": {
+        "id": "beta-internal-doc",
+        "tenant": "beta",
+        "kind": "document",
+        "classification": "internal",
+        "ownerId": "frank"
+      },
+      "context": {
+        "id": "corp-mfa",
+        "network": "corporate",
+        "mfa": true
+      }
+    },
+    "decision": {
+      "allowed": true,
+      "reason": "allow-rule",
+      "allowRules": [
+        "allow-view"
+      ],
+      "denyRules": [],
+      "effectiveRoles": [
+        "viewer"
+      ],
+      "rolePaths": {
+        "allow-view": [
+          [
+            "viewer"
+          ]
+        ]
+      }
+    },
+    "rules": [
+      {
+        "ruleId": "allow-approve",
+        "effect": "allow",
+        "roleSelectorMatches": false,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": false,
+        "conditions": []
+      },
+      {
+        "ruleId": "allow-edit",
+        "effect": "allow",
+        "roleSelectorMatches": false,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": []
+      },
+      {
+        "ruleId": "allow-submit",
+        "effect": "allow",
+        "roleSelectorMatches": false,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": false,
+        "conditions": []
+      },
+      {
+        "ruleId": "allow-view",
+        "effect": "allow",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": true,
+        "resourceKindSelectorMatches": true,
+        "conditions": []
+      },
+      {
+        "ruleId": "deny-mutation-without-mfa",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "context.mfa",
+            "op": "eq",
+            "right": {
+              "value": false
+            },
+            "leftValue": true,
+            "rightValue": false,
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-public-approval",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "context.network",
+            "op": "eq",
+            "right": {
+              "value": "public"
+            },
+            "leftValue": "corporate",
+            "rightValue": "public",
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-restricted-read-without-mfa",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": true,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "resource.classification",
+            "op": "eq",
+            "right": {
+              "value": "restricted"
+            },
+            "leftValue": "internal",
+            "rightValue": "restricted",
+            "passed": false
+          },
+          {
+            "left": "context.mfa",
+            "op": "eq",
+            "right": {
+              "value": false
+            },
+            "leftValue": true,
+            "rightValue": false,
+            "passed": false
+          }
+        ]
+      },
+      {
+        "ruleId": "deny-self-approval",
+        "effect": "deny",
+        "roleSelectorMatches": true,
+        "actionSelectorMatches": false,
+        "resourceKindSelectorMatches": true,
+        "conditions": [
+          {
+            "left": "subject.id",
+            "op": "eq",
+            "right": {
+              "attribute": "resource.ownerId"
+            },
+            "leftValue": "alex",
+            "rightValue": "frank",
+            "passed": false
+          }
+        ]
+      }
+    ]
+  }
+}
