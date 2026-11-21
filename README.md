@@ -1,5 +1,7 @@
 # Access policy audit lab
 
+**[View the report in your browser](https://Michaelhoang8.github.io/access-policy-audit-lab/)**
+
 An offline authorization analysis tool for a deliberately small **custom RBAC-plus-attribute language**. It validates role inheritance, applies explicit-deny precedence and default deny, and compares complete decision matrices before and after policy changes. All users, roles, resources and request contexts are synthetic. No live account is queried or modified.
 
 **[Technical report](docs/report.html)** · [Screenshots](docs/screenshots/README.md) · [Review recording](docs/recordings/README.md) · [Language specification](docs/language.md)
